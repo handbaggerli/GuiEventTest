@@ -1,0 +1,15 @@
+Convert GUI from QT Creator to Python
+in cmd:
+in: C:\Anaconda3\Library\bin
+
+
+pyuic5.bat -x D:\GitRepos\TestGuiEvents\GuiBuilder\TestGuiEvents\mainwindow.ui -o  D:\GitRepos\TestGuiEvents\Python\ui\Ui_MainWindow.py
+pyuic5.bat -x D:\GitRepos\TestGuiEvents\GuiBuilder\TestGuiEvents\dialogtext.ui -o  D:\GitRepos\TestGuiEvents\Python\ui\Ui_DialogText.py
+
+
+Wichtig:
+Objekt Ui_DialogText darf nicht von Typ object erben, das sonst die Events nicht funktionieren. Alles unterhalb von QObject ist OK.
+Also ersetzen von der Zeile 
+class Ui_DialogText(object):
+mit
+class Ui_DialogText(QtWidgets.QDialog):
